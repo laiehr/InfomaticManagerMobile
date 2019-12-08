@@ -1,9 +1,8 @@
 <template>
 	<view>
-		<cu-custom bgColor="bg-informatic-brown" isBack="">
+		<cu-custom bgColor="bg-informatic-brown" isBack>
 			<block slot="backText">返回</block>
 			<block slot="content">我的参与</block>
-			<view class="action" slot="right" @click="addApplication()">添加</view>
 		</cu-custom>
 		<view class="cu-bar bg-white solids-bottom">
 			<view class="action">
@@ -21,6 +20,11 @@
 				<sticky :item="item" />
 			</view>
 		</transition-group>
+		<template v-if="data.length===0 && display">
+			<view class="padding-tb text-center text-lg">
+				<text class="text-bold text-gray">暂无数据</text>
+			</view>
+		</template>
 	</view>
 </template>
 
@@ -45,11 +49,6 @@
 					if (msg.success) {
 						this.data = msg.data;
 					}
-				})
-			},
-			addApplication() {
-				uni.navigateTo({
-					url: "/iuc/roomApplication/v1/create"
 				})
 			},
 			toExecute(item) {

@@ -49,7 +49,7 @@ uni.post("/api/config/GetBasicConfig", {}, msg => {
 		app.userInfo = msg.userInfo;
 		let ps = app.userInfo.permissons;
 		app.checkPermission = (p) => {
-			return ps && ps.indexOf(p) >= 0;
+			return (ps && ps.indexOf(p)) >= 0;
 		}
 	}
 

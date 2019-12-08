@@ -1,6 +1,6 @@
 <template>
 	<view id="lab-apply-allot">
-		<cu-custom bgColor="bg-informatic-brown" isBack="">
+		<cu-custom bgColor="bg-informatic-brown" isBack>
 			<block slot="backText">返回</block>
 			<block slot="content">分管领导分配</block>
 		</cu-custom>

@@ -1,6 +1,6 @@
 <template>
 	<view id="room-detail">
-		<cu-custom bgColor="bg-informatic-brown" isBack="">
+		<cu-custom bgColor="bg-informatic-brown" isBack>
 			<block slot="backText">返回</block>
 			<block slot="content">实验室详细信息</block>
 		</cu-custom>
@@ -26,6 +26,7 @@
 </template>
 
 <script>
+	let app = require("@/config");
 	let enums = require("../enumsv1.js");
 	export default{
 		onLoad(opt) {
@@ -44,6 +45,14 @@
 				this.scrollLeft = (e.currentTarget.dataset.id - 1) * 60
 			},
 			create() {
+				if(app.checkPermission("ItemManager.CreateSoftwareInstallWorkflow")==-1)
+				{
+					uni.showToast({
+						title: "您没有权限",
+						icon: "none"
+					})
+					return;
+				};
 				uni.navigateTo({
 					url: "./create?buildingID="+this.labInfo.BuildingId+"&roomID="+this.labInfo.ID+"&BuildingName="+this.labInfo.Building.Name+"&labName="+this.labInfo.Name
 				})

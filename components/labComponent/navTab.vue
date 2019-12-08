@@ -4,7 +4,7 @@
 			<view v-for="(item,index) in tabInfo" class="action" :key="index" @click="navTo(item.nav)">
 				<view :class="{'text-bold':index === selection,'text-informatic-brown':index === selection}">
 					<text :class="item.icon"></text>
-					<text class="text-lg">{{item.text}}</text>
+					<text class="text-df">{{item.text}}</text>
 				</view>
 			</view>
 		</view>
@@ -36,7 +36,7 @@
 					{
 						icon: 'cuIcon-notice',
 						text: '通知公告',
-						nav: ''
+						nav: '../../iuc/News/newsList'
 					},
 					{
 						icon: 'cuIcon-notice',

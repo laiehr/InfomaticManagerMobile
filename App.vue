@@ -6,7 +6,7 @@
 			if (app.userInfo.isLogined) {
 				let ps = app.userInfo.permissons;
 				app.checkPermission = (p) => {
-					return ps && ps.indexOf(p) >= 0;
+					return (ps && ps.indexOf(p)) >= 0;
 				}
 				// this.loginSuccess(app.userInfo.currentUserGuid);
 				uni.navigateTo({

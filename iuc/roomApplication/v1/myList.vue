@@ -1,9 +1,8 @@
 <template>
 	<view id="lab-apply-list">
-		<cu-custom bgColor="bg-informatic-brown" isBack="">
+		<cu-custom bgColor="bg-informatic-brown" isBack>
 			<block slot="backText">返回</block>
 			<block slot="content">我的申请</block>
-			<view class="action" slot="right" @click="addApplication()">添加</view>
 		</cu-custom>
 		<transition-group class="cu-card" name="list">
 			<view class="cu-item bg-informatic-brown shadow"
@@ -39,12 +38,8 @@
 				}, msg => {
 					if (msg.success) {
 						this.data = msg.data;
+						this.data = this.data.filter(e => e.State != 0);
 					}
-				})
-			},
-			addApplication() {
-				uni.navigateTo({
-					url: "/iuc/roomApplication/v1/create"
 				})
 			},
 			toExecute(item) {

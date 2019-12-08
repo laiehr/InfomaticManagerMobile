@@ -9,6 +9,7 @@
 		<a href="javascript:;" class="cu-btn bg-blue lg margin-top" @click="go('d9824e8c-c998-45e2-8156-34d723049855','softwareInstall')">以普通老师身份登录</a>
 		<a href="javascript:;" class="cu-btn bg-blue lg margin-top" @click="go('8094cf84-01e6-484d-bb01-04a299f5ef5b','softwareInstall')">以维修者主管身份登录</a>
 		<a href="javascript:;" class="cu-btn bg-blue lg margin-top" @click="go('b15f7cdb-9f96-4041-a7b2-4cfeebabaa8d','softwareInstall')">以普通维修者身份登录</a>
+		<button @click="clear">清空缓存</button>
 	</view>
 </template>
 
@@ -16,15 +17,17 @@
 	let app = require("@/config");
 	export default {
 		methods: {
-			goCreate () {
+			goCreate() {
 				uni.navigateTo({
 					url: "/iuc/softwareInstall/v1/list"
 				})
 			},
-			go (id,where) {
-				uni.post("/uc/getCurrentUserGuid", {id}, msg => {
+			go(id, where) {
+				uni.post("/uc/getCurrentUserGuid", {
+					id
+				}, msg => {
 					uni.setStorage({
-						key:'currentUserGuid',
+						key: 'currentUserGuid',
 						data: msg.currentUserGuid,
 					});
 					app.currentUserGuid = msg.currentUserGuid;
@@ -33,20 +36,25 @@
 					app.checkPermission = (p) => {
 						return ps && ps.indexOf(p) >= 0;
 					};
-					if(where == 'softwareInstall')
-					{uni.navigateTo({
-						url: "/iuc/"+where+"/v1/list"
-					})}
-					else if(where == 'roomApplication') {
+					if (where == 'softwareInstall') {
 						uni.navigateTo({
-							url: "/iuc/profile/profile"
+							url: "/iuc/" + where + "/v1/list"
 						})
+					} else if (where == 'roomApplication') {
+						uni.navigateBack({
+							
+						});
 					}
 				});
+			},
+			clear() {
+				uni.clearStorage();
+				uni.navigateBack({
+					
+				});
 			}
-			
 		},
-		data () {
+		data() {
 			return {
 				app
 			}

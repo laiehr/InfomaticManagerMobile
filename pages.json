@@ -94,6 +94,14 @@
 			"style": {}
 		},
 		{
+			"path":"iuc/News/newsList",
+			"style": {}
+		},
+		{
+			"path":"iuc/News/newsDetail",
+			"style": {}
+		},
+		{
 			"path":"iuc/userInfo/modifyGrade",
 			"style": {}
 		},

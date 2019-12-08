@@ -1,6 +1,6 @@
 <template>
 	<view id="lab-apply-confirm">
-		<cu-custom bgColor="bg-informatic-brown" isBack="">
+		<cu-custom bgColor="bg-informatic-brown" isBack>
 			<block slot="backText">返回</block>
 			<block slot="content">实验室申请表</block>
 		</cu-custom>
@@ -38,7 +38,7 @@
 			</view>
 		</view>
 		<labTimeLine :timeline="timeline" v-show="displayTimeline"></labTimeLine>
-		<view class="action-list cu-list grid col-4 margin-top margin-top">
+		<view class="action-list cu-list grid col-3 margin-top margin-top">
 			<view class="cu-item" @click="submit('')">
 				<view class="cuIcon-roundcheckfill text-green"></view>
 				<text>同意申请</text>

@@ -1,6 +1,6 @@
 <template>
 	<view id="lab-apply-check">
-		<cu-custom bgColor="bg-informatic-brown" isBack="">
+		<cu-custom bgColor="bg-informatic-brown" isBack>
 			<block slot="backText">返回</block>
 			<block slot="content">指导老师审核</block>
 		</cu-custom>
